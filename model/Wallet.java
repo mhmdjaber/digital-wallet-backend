@@ -1,17 +1,23 @@
+package model;
 import java.math.BigDecimal;
+
+import enums.Currency;
+import enums.WalletStatus;
 
 public class Wallet {
 
     private Long id;
     private User user;
     private BigDecimal balance;
-    private String currency;
+    private Currency currency;
+    private WalletStatus status;
 
-    public Wallet(Long id, User user, BigDecimal balance, String currency) {
+    public Wallet(Long id, User user, BigDecimal balance, Currency currency) {
         this.id = id;
         this.user = user;
         this.balance = balance;
         this.currency = currency;
+        this.status = WalletStatus.ACTIVE;//default status is Active
     }
 
     public Long getId() {
@@ -26,7 +32,7 @@ public class Wallet {
         return balance;
     }
 
-    public String getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
@@ -42,7 +48,11 @@ public class Wallet {
         this.balance = balance;
     }
 
-    public void setCurrency(String currency) {
+    public void setCurrency(Currency currency) {
         this.currency = currency;
     }
+      public WalletStatus getStatus() {
+        return status;
+    }
+
 }

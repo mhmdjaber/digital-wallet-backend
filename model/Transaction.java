@@ -1,19 +1,26 @@
+package model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import enums.TransactionStatus;
+import enums.TransactionType;
 
 public class Transaction {
 
     private Long id;
     private Wallet wallet;
-    private String type;
+    private TransactionType type;
     private BigDecimal amount;
+    private TransactionStatus status;
     private LocalDateTime createdAt;
 
-    public Transaction(Long id, Wallet wallet, String type, BigDecimal amount, LocalDateTime createdAt) {
+    public Transaction(Long id, Wallet wallet, TransactionType type, BigDecimal amount,
+                       TransactionStatus status, LocalDateTime createdAt) {
         this.id = id;
         this.wallet = wallet;
         this.type = type;
         this.amount = amount;
+        this.status = status;
         this.createdAt = createdAt;
     }
 
@@ -25,12 +32,16 @@ public class Transaction {
         return wallet;
     }
 
-    public String getType() {
+    public TransactionType getType() {
         return type;
     }
 
     public BigDecimal getAmount() {
         return amount;
+    }
+
+    public TransactionStatus getStatus() {
+        return status;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -45,12 +56,16 @@ public class Transaction {
         this.wallet = wallet;
     }
 
-    public void setType(String type) {
+    public void setType(TransactionType type) {
         this.type = type;
     }
 
     public void setAmount(BigDecimal amount) {
         this.amount = amount;
+    }
+
+    public void setStatus(TransactionStatus status) {
+        this.status = status;
     }
 
     public void setCreatedAt(LocalDateTime createdAt) {
