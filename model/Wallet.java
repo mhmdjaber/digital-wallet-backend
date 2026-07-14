@@ -55,4 +55,8 @@ public class Wallet {
         return status;
     }
 
+    public void setStatus(WalletStatus status) {
+      this.status = status;
+    }
+ 
 }
