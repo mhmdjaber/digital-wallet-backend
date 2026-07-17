@@ -1,8 +1,12 @@
 package services;
+
 import java.math.BigDecimal;
 
 import enums.TransactionType;
 import enums.WalletStatus;
+import exceptions.InsufficientBalanceException;
+import exceptions.InvalidAmountException;
+import exceptions.WalletNotActiveException;
 import model.Wallet;
 
 public class WalletService {
@@ -27,7 +31,7 @@ public class WalletService {
         validateAmount(amount);
 
         if (wallet.getBalance().compareTo(amount) < 0) {
-            throw new RuntimeException("Insufficient balance");
+            throw new InsufficientBalanceException("Insufficient balance");
         }
 
         wallet.setBalance(wallet.getBalance().subtract(amount));
@@ -41,7 +45,7 @@ public class WalletService {
         validateAmount(amount);
 
         if (fromWallet.getBalance().compareTo(amount) < 0) {
-            throw new RuntimeException("Insufficient balance");
+            throw new InsufficientBalanceException("Insufficient balance");
         }
 
         fromWallet.setBalance(fromWallet.getBalance().subtract(amount));
@@ -52,14 +56,22 @@ public class WalletService {
     }
 
     private void validateAmount(BigDecimal amount) {
+        if (amount == null) {
+            throw new InvalidAmountException("Amount cannot be null");
+        }
+
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new RuntimeException("Amount must be positive");
+            throw new InvalidAmountException("Amount must be positive");
         }
     }
 
     private void validateWalletIsActive(Wallet wallet) {
+        if (wallet == null) {
+            throw new WalletNotActiveException("Wallet cannot be null");
+        }
+
         if (wallet.getStatus() != WalletStatus.ACTIVE) {
-            throw new RuntimeException("Wallet is not active");
+            throw new WalletNotActiveException("Wallet is not active");
         }
     }
 }
