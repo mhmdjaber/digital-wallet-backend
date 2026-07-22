@@ -1,13 +1,13 @@
-package services;
+package com.mhmd.wallet.services;
 
 import java.math.BigDecimal;
 
-import enums.TransactionType;
-import enums.WalletStatus;
-import exceptions.InsufficientBalanceException;
-import exceptions.InvalidAmountException;
-import exceptions.WalletNotActiveException;
-import model.Wallet;
+import com.mhmd.wallet.enums.TransactionType;
+import com.mhmd.wallet.enums.WalletStatus;
+import com.mhmd.wallet.exceptions.InsufficientBalanceException;
+import com.mhmd.wallet.exceptions.InvalidAmountException;
+import com.mhmd.wallet.exceptions.WalletNotActiveException;
+import com.mhmd.wallet.model.Wallet;
 
 public class WalletService {
 

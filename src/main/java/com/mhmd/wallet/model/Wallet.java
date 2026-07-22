@@ -1,8 +1,8 @@
-package model;
+package com.mhmd.wallet.model;
 import java.math.BigDecimal;
 
-import enums.Currency;
-import enums.WalletStatus;
+import com.mhmd.wallet.enums.Currency;
+import com.mhmd.wallet.enums.WalletStatus;
 
 public class Wallet {
 

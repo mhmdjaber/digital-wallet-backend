@@ -1,4 +1,4 @@
-package enums;
+package com.mhmd.wallet.enums;
 public enum TransactionType {
     DEPOSIT,
     WITHDRAW,

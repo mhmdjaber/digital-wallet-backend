@@ -1,4 +1,4 @@
-package exceptions;
+package com.mhmd.wallet.exceptions;
 
 public class WalletNotActiveException extends RuntimeException {
 

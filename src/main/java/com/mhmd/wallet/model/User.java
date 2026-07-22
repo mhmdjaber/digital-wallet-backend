@@ -1,4 +1,4 @@
-package model;
+package com.mhmd.wallet.model;
 public class User {
 
     private Long id;

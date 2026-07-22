@@ -1,9 +1,9 @@
-package model;
+package com.mhmd.wallet.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import enums.TransactionStatus;
-import enums.TransactionType;
+import com.mhmd.wallet.enums.TransactionStatus;
+import com.mhmd.wallet.enums.TransactionType;
 
 public class Transaction {
 
